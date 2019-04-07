@@ -45,12 +45,14 @@ class ModelMLP :
 
 		x_train, x_valid, y_train, y_valid	= train_test_split(	x, y, test_size	= .2)
 
+		'''
 		print( x_train)
 		print( x_valid)
 		print( y_train)
 		print( y_valid)
 		print( x_train.shape, x_valid.shape)
 		print( y_train.shape, y_valid.shape)
+		'''
 
 		self.scaler.fit( x_train)
 		x_train	= self.scaler.transform( x_train)
@@ -65,14 +67,17 @@ class ModelMLP :
 						y_train,
 						validation_data		= (x_valid, y_valid),
 						batch_size			= 4,
-						epochs				= 50,
-						verbose				= 1 )
+						epochs				= 100,
+						verbose				= 2 )
 
 	def	predict( self, x_pred) :
 
+#		print( "x_pred: {}".format( x_pred))
+
 		x_pred	= self.scaler.transform( x_pred)
 
-		print( x_pred[-1])
-		print( x_pred.shape)
+#		print( "x_pred: {}".format( x_pred))
+#		print( "x_pred: {}".format( x_pred[-1]))
+#		print( "shape : {}".format( x_pred.shape))
 
 		return	self.model.predict( x_pred)
