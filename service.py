@@ -48,7 +48,7 @@ def get_nda( csv_text):
 #	print( list_data)
 
 #	nda	= np.array( list_data[1:])			# 1: exclude header line.
-	nda	= np.array( list_data[1:14])		# for demo.
+	nda	= np.array( list_data[1:15])		# for demo.
 	print( nda.shape)
 
 	return	nda.astype( np.int)
@@ -66,8 +66,9 @@ def	loop( wg, mm, host_domain) :
 	csv_text	= get( host_domain, 'data_response/?format=csv')
 	nda			= get_nda( csv_text)
 #	'''
-#	print( nda[0])
+#	print( nda)
 #	print( nda.shape)
+#	sys.exit( 0)
 
 	user_id		= int( nda[0][0])
 	pref_code	= int( nda[0][1])
