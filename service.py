@@ -65,8 +65,6 @@ def	loop( wg, mm, host_domain) :
 	'''
 	csv_text	= get( host_domain, 'data_response/?format=csv')
 	nda			= get_nda( csv_text)
-	print( nda)
-	sys.exit( 0)
 #	'''
 #	print( nda[0])
 #	print( nda.shape)
