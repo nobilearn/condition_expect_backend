@@ -48,7 +48,7 @@ def get_nda( csv_text):
 #	print( list_data)
 
 #	nda	= np.array( list_data[1:])			# 1: exclude header line.
-	nda	= np.array( list_data[-14:])		# for demo.
+	nda	= np.array( list_data[1:14])		# for demo.
 	print( nda.shape)
 
 	return	nda.astype( np.int)
@@ -65,6 +65,8 @@ def	loop( wg, mm, host_domain) :
 	'''
 	csv_text	= get( host_domain, 'data_response/?format=csv')
 	nda			= get_nda( csv_text)
+	print( nda)
+	sys.exit( 0)
 #	'''
 #	print( nda[0])
 #	print( nda.shape)
@@ -108,15 +110,15 @@ def	loop( wg, mm, host_domain) :
 	POST
 	'''
 	json_dict	= {
-		"user_id"		: user_id,
-		"rain_pct"		: rain_pct,
-		"w_temp"		: w_temp,
-		"ml_predict"	: int( pred)
+		"user_id"	: user_id,
+		"rain_pct"	: rain_pct,
+		"w_temp"	: w_temp,
+		"m_predict"	: int( pred)
 	}
 	print( json_dict)
 
-#	err	= post( host_domain, 'data_create/', json_dict)
-	err	= 0					# for demo: not post result.
+	err	= post( host_domain, 'data_create/', json_dict)
+#	err	= 0					# for demo: not post result.
 	print( err)
 
 	return	err

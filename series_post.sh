@@ -17,7 +17,7 @@ do
 	rain_pct=`echo $line | cut -d ',' -f 6`
 	w_temp=`echo $line | cut -d ',' -f 7`
 	pred=`echo $line | cut -d ',' -f 10`
-	json_str="{\"user_id\":${user_id},\"rain_pct\":${rain_pct},\"w_temp\":${w_temp},\"ml_predict\":${pred}}"
+	json_str="{\"user_id\":${user_id},\"rain_pct\":${rain_pct},\"w_temp\":${w_temp},\"m_predict\":${pred}}"
 #	echo $C_TYPE $json_str $URL
 	curl -X POST -H "${C_TYPE}" -d "$json_str" "$URL"
 done
